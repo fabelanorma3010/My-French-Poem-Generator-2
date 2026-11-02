@@ -7,31 +7,34 @@
     <title>French Poems</title>
   </head>
   <body>
-    <header>
-      <h1>French Poems</h1>
-    </header>
-    <main>
-      <form>
-        <input
-          type="text"
-          placeholder="Enter the topic of the french poem"
-          autofocus
-          required
-          autocomplete="off"
-          class="instruction"
-        />
-        <input type="submit" />
-      </form>
-    </main>
-    <footer>
-      This was coded by Norma Fabela and is open source on GitHub
-      <a
-        href="https://github.com/fabelanorma3010/My-french-poem-Generator-system"
-        target="_blank"
-        rel="noopener noreferrer"
-        >GitHub</a
-      >
-    </footer>
+    <div class="container">
+      <header>
+        <h1>French Poems</h1>
+      </header>
+      <main>
+        <form id="poem-generator-form">
+          <input
+            type="text"
+            placeholder="Enter the topic of the french poem"
+            autofocus
+            required
+            autocomplete="off"
+            class="instructions"
+          />
+          <input type="submit" class="submit-button" />
+        </form>
+        <div class="poem" id="poem"></div>
+      </main>
+      <footer>
+        This was coded by Norma Fabela and is open source on GitHub
+        <a
+          href="https://github.com/fabelanorma3010/My-french-poem-Generator-system"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
+      </footer>
+    </div>
 
     <script src="src/index.js"></script>
   </body>
