@@ -3,27 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/typewriter-effect@3/dist/core.js"></script>
     <link rel="stylesheet" href="src/style.css" />
-    <title>French Poems</title>
+    <title>English Poems</title>
   </head>
   <body>
+    <div class="page-opening" aria-hidden="true">
+      <div class="page-opening__panel page-opening__panel--top-left"></div>
+      <div class="page-opening__panel page-opening__panel--top-right"></div>
+      <div class="page-opening__panel page-opening__panel--bottom-left"></div>
+      <div class="page-opening__panel page-opening__panel--bottom-right"></div>
+      <div class="page-opening__ribbon page-opening__ribbon--vertical"></div>
+      <div class="page-opening__ribbon page-opening__ribbon--horizontal"></div>
+      <div class="page-opening__bow"></div>
+    </div>
     <div class="container">
-      <header>
-        <h1>French Poems</h1>
-      </header>
       <main>
-        <form id="poem-generator-form">
-          <input
-            type="text"
-            placeholder="Enter the topic of the french poem"
-            autofocus
-            required
-            autocomplete="off"
-            class="instructions"
-          />
-          <input type="submit" class="submit-button" />
-        </form>
-        <div class="poem" id="poem"></div>
+        <section class="spotify-player" aria-labelledby="spotify-heading">
+          <div class="siren-light" aria-hidden="true">
+            <span class="siren-light__lamp siren-light__lamp--red"></span>
+            <span class="siren-light__lamp siren-light__lamp--blue"></span>
+            <span class="siren-light__base"></span>
+          </div>
+          <button
+            class="siren-toggle"
+            id="siren-toggle"
+            type="button"
+            aria-pressed="true"
+          >
+            Siren: On
+          </button>
+          <h2 id="spotify-heading">Listen to Ariana Grande</h2>
+          <iframe
+            title="Ariana Grande on Spotify"
+            src="https://open.spotify.com/embed/artist/66CXWjxzNUsdJxJ2JdwvnR"
+            width="100%"
+            height="152"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </section>
+        <div class="generator-stage">
+          <div class="form-container">
+            <header>
+              <h1>English Poems</h1>
+            </header>
+            <form id="poem-generator-form">
+              <input
+                type="text"
+                placeholder="Enter the topic of the English poem"
+                required
+                autocomplete="off"
+                class="instructions"
+                id="user-instructions"
+              />
+              <input type="submit" class="submit-button" />
+            </form>
+            <div class="hint">
+              hint: i.e: Flower, Paris, Cheese, Love, Life, Angels, or Healing
+            </div>
+          </div>
+        </div>
+        <div class="letter-scene hidden" id="letter-scene">
+          <div class="envelope" aria-hidden="true">
+            <div class="envelope__body"></div>
+            <div class="envelope__flap"></div>
+          </div>
+          <div class="poem" id="poem"></div>
+        </div>
       </main>
       <footer>
         This was coded by Norma Fabela and is open source on GitHub
