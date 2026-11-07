@@ -8,6 +8,14 @@
     <title>English Poems</title>
   </head>
   <body>
+    <div class="falling-stars" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <div class="page-opening" aria-hidden="true">
       <div class="page-opening__panel page-opening__panel--top-left"></div>
       <div class="page-opening__panel page-opening__panel--top-right"></div>
@@ -18,31 +26,53 @@
       <div class="page-opening__bow"></div>
     </div>
     <div class="container">
-      <main>
-        <section class="spotify-player" aria-labelledby="spotify-heading">
-          <div class="siren-light" aria-hidden="true">
-            <span class="siren-light__lamp siren-light__lamp--red"></span>
-            <span class="siren-light__lamp siren-light__lamp--blue"></span>
-            <span class="siren-light__base"></span>
-          </div>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-pressed="false"
+      >
+        Light mode: Off
+      </button>
+      <div class="siren-light is-off" aria-hidden="true">
+        <span class="siren-light__lamp siren-light__lamp--red"></span>
+        <span class="siren-light__lamp siren-light__lamp--blue"></span>
+        <span class="siren-light__base"></span>
+      </div>
+      <button
+        class="siren-toggle"
+        id="siren-toggle"
+        type="button"
+        aria-pressed="false"
+      >
+        Siren: Off
+      </button>
+      <section class="ambient-player" aria-labelledby="ambient-heading">
+        <div class="ambient-player__title">
+          <h2 id="ambient-heading">Soft relaxing music</h2>
+          <span id="ambient-status" role="status" aria-live="polite">Paused</span>
+        </div>
+        <div class="ambient-player__controls">
           <button
-            class="siren-toggle"
-            id="siren-toggle"
+            class="ambient-toggle"
+            id="ambient-toggle"
             type="button"
-            aria-pressed="true"
+            aria-pressed="false"
           >
-            Siren: On
+            Play music
           </button>
-          <h2 id="spotify-heading">Listen to Ariana Grande</h2>
-          <iframe
-            title="Ariana Grande on Spotify"
-            src="https://open.spotify.com/embed/artist/66CXWjxzNUsdJxJ2JdwvnR"
-            width="100%"
-            height="152"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-        </section>
+          <label for="ambient-volume">Volume</label>
+          <input
+            id="ambient-volume"
+            type="range"
+            min="0"
+            max="0.5"
+            step="0.01"
+            value="0.18"
+          />
+        </div>
+      </section>
+      <main>
         <div class="generator-stage">
           <div class="form-container">
             <header>
@@ -64,13 +94,37 @@
             </div>
           </div>
         </div>
-        <div class="letter-scene hidden" id="letter-scene">
+        <div class="letter-scene" id="letter-scene">
           <div class="envelope" aria-hidden="true">
             <div class="envelope__body"></div>
             <div class="envelope__flap"></div>
           </div>
-          <div class="poem" id="poem"></div>
+          <div class="poem" id="poem">Your poem will appear here.</div>
+          <div class="poem-actions">
+            <button
+              class="save-poem-button hidden"
+              id="save-poem-button"
+              type="button"
+              disabled
+            >
+              Save poem
+            </button>
+            <span
+              class="save-status"
+              id="save-status"
+              role="status"
+              aria-live="polite"
+            ></span>
+          </div>
         </div>
+        <section
+          class="saved-poems hidden"
+          id="saved-poems"
+          aria-labelledby="saved-poems-heading"
+        >
+          <h2 id="saved-poems-heading">Saved poems</h2>
+          <ul class="saved-poem-list" id="saved-poem-list"></ul>
+        </section>
       </main>
       <footer>
         This was coded by Norma Fabela and is open source on GitHub
